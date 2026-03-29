@@ -88,4 +88,3 @@ export default defineConfig({
     types: [schemaArticle],
   },
 });
-lo
