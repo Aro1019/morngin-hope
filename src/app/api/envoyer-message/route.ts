@@ -5,8 +5,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-/* Instance Resend avec la clé API */
-const resend = new Resend(process.env.RESEND_API_KEY || '');
+/* Instance Resend créée uniquement à l'appel (pas au build) */
+let _resend: Resend | null = null;
+function obtenirResend(): Resend {
+  if (!_resend) {
+    const cle = process.env.RESEND_API_KEY;
+    if (!cle) {
+      throw new Error('RESEND_API_KEY non définie dans les variables d\'environnement.');
+    }
+    _resend = new Resend(cle);
+  }
+  return _resend;
+}
 
 /* Rate limiting simple en mémoire (par IP) */
 const tentativesParIP = new Map<string, { compteur: number; derniereRequete: number }>();
@@ -101,6 +111,7 @@ export async function POST(requete: NextRequest) {
     const emailNettoye = email.trim().slice(0, 254);
 
     /* Envoi de l'email via Resend */
+    const resend = obtenirResend();
     await resend.emails.send({
       from: 'Morning Hope <onboarding@resend.dev>',
       to: process.env.CONTACT_EMAIL || 'contact@morninghope.org',
