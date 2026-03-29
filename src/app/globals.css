@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
+/* ===== Variables de couleurs Morning Hope ===== */
+/* Palette principale : bleu et jaune */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bleu-primaire: #1e3a5f;
+  --bleu-clair: #2d6cb4;
+  --bleu-tres-clair: #e8f0fe;
+  --jaune-primaire: #f5a623;
+  --jaune-clair: #fdd835;
+  --jaune-tres-clair: #fff8e1;
+  --fond: #ffffff;
+  --texte: #1a1a2e;
+  --texte-clair: #6b7280;
+  --gris-clair: #f3f4f6;
+  --bordure: #e5e7eb;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bleu-primaire: var(--bleu-primaire);
+  --color-bleu-clair: var(--bleu-clair);
+  --color-bleu-tres-clair: var(--bleu-tres-clair);
+  --color-jaune-primaire: var(--jaune-primaire);
+  --color-jaune-clair: var(--jaune-clair);
+  --color-jaune-tres-clair: var(--jaune-tres-clair);
+  --color-fond: var(--fond);
+  --color-texte: var(--texte);
+  --color-texte-clair: var(--texte-clair);
+  --color-gris-clair: var(--gris-clair);
+  --color-bordure: var(--bordure);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* ===== Styles utilitaires globaux ===== */
+/* Transition douce sur les éléments interactifs uniquement */
+a, button, input, textarea, select,
+.transition-colors, .transition-all {
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Animation d'apparition */
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animer-apparition {
+  animation: apparition 0.6s ease-out forwards;
+}
+
+/* Scroll fluide */
+html {
+  scroll-behavior: smooth;
 }
