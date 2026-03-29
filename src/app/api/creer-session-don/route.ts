@@ -3,7 +3,7 @@
 /* Sécurité : validation du montant, rate limiting */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe';
+import { obtenirStripe } from '@/lib/stripe';
 
 /* Rate limiting simple en mémoire (par IP) */
 const tentativesParIP = new Map<string, { compteur: number; derniereRequete: number }>();
@@ -53,6 +53,7 @@ export async function POST(requete: NextRequest) {
     const montantCentimes = Math.round(montant * 100);
 
     /* Créer la session Stripe Checkout */
+    const stripe = obtenirStripe();
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'payment',
