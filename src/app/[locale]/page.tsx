@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/navigation';
 import Image from 'next/image';
-import { Shield, Heart, BookOpen, Users, GraduationCap, TreePine, HandHeart, MessageCircle } from 'lucide-react';
+import { Shield, Heart, BookOpen, Users, GraduationCap, TreePine, HandHeart, MessageCircle, Quote } from 'lucide-react';
 
 const URL_SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://morninghope.org';
 
@@ -49,6 +49,14 @@ export default function PageAccueil() {
     { nombre: '1 200+', label: t('impactFamilles') },
     { nombre: '50+', label: t('impactProjets') },
     { nombre: '30+', label: t('impactPartenaires') },
+  ];
+
+  /* Membres principaux de l'équipe */
+  const membres = [
+    { cle: 'membre1', photo: '/assets/equipe/membre1.svg' },
+    { cle: 'membre2', photo: '/assets/equipe/membre2.svg' },
+    { cle: 'membre3', photo: '/assets/equipe/membre3.svg' },
+    { cle: 'membre4', photo: '/assets/equipe/membre4.svg' },
   ];
 
   return (
@@ -170,6 +178,60 @@ export default function PageAccueil() {
                 <p className="text-texte-clair font-medium">
                   {stat.label}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Section équipe / responsables ===== */}
+      <section className="py-20 bg-gris-clair">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-bleu-tres-clair text-bleu-primaire rounded-full text-sm font-semibold">
+              <Users className="w-4 h-4" />
+              <span>Morning Hope</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-bleu-primaire">
+              {t('equipeTitre')}
+            </h2>
+            <p className="text-lg text-texte-clair max-w-2xl mx-auto">
+              {t('equipeSousTitre')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {membres.map(({ cle, photo }) => (
+              <div
+                key={cle}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-bordure group text-center"
+              >
+                {/* Photo du membre */}
+                <div className="relative w-full aspect-square overflow-hidden bg-bleu-tres-clair">
+                  <Image
+                    src={photo}
+                    alt={t(`${cle}Nom`)}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Informations */}
+                <div className="p-6 space-y-3">
+                  <h3 className="text-xl font-bold text-bleu-primaire">
+                    {t(`${cle}Nom`)}
+                  </h3>
+                  <p className="text-sm font-semibold text-jaune-primaire uppercase tracking-wide">
+                    {t(`${cle}Role`)}
+                  </p>
+                  {/* Slogan avec icône citation */}
+                  <div className="pt-3 border-t border-bordure">
+                    <Quote className="w-5 h-5 text-jaune-primaire mx-auto mb-2 opacity-60" />
+                    <p className="text-sm text-texte-clair italic leading-relaxed">
+                      {t(`${cle}Slogan`)}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

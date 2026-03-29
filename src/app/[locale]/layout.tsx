@@ -23,6 +23,12 @@ const URL_SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://morninghope.org';
 /* Métadonnées dynamiques selon la langue avec Open Graph et Twitter Cards */
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
+
+  /* Vérifier que la locale est valide avant de charger les messages */
+  if (!hasLocale(locales, locale)) {
+    return { title: 'Morning Hope' };
+  }
+
   const messages = (await import(`../../../messages/${locale}.json`)).default;
 
   /* Langue alternative pour le hreflang */

@@ -6,6 +6,8 @@ import { obtenirArticleParSlug } from '@/lib/sanity';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { ArrowLeft, Calendar } from 'lucide-react';
+import { PortableText } from '@portabletext/react';
+import type { PortableTextBlock } from '@portabletext/types';
 
 export default async function PageArticle({
   params,
@@ -18,7 +20,7 @@ export default async function PageArticle({
   /* Récupération de l'article depuis Sanity */
   let article: {
     titre: string;
-    contenu?: string;
+    contenu?: PortableTextBlock[];
     imageprincipale?: string;
     datePublication?: string;
     resume?: string;
@@ -73,10 +75,10 @@ export default async function PageArticle({
             </div>
           )}
 
-          {/* Texte de l'article */}
+          {/* Texte de l'article — rendu avec PortableText de Sanity */}
           <div className="prose prose-lg max-w-none text-texte">
             {article.contenu ? (
-              <div dangerouslySetInnerHTML={{ __html: article.contenu }} />
+              <PortableText value={article.contenu} />
             ) : (
               <p className="text-texte-clair">{article.resume}</p>
             )}

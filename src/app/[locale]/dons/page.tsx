@@ -110,6 +110,7 @@ export default function PageDons() {
                   <input
                     type="number"
                     min="1"
+                    max="100000"
                     step="1"
                     value={montantPersonnalise}
                     onChange={(e) => {

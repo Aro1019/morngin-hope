@@ -75,8 +75,8 @@ export default function PageContact() {
                 <div>
                   <h3 className="font-semibold text-bleu-primaire">{t('adresse')}</h3>
                   <p className="text-texte-clair text-sm mt-1">
-                    123 Rue de l&apos;Espoir<br />
-                    75001 Paris, France
+                    301 Fianarantsoa<br />
+                    Madagascar
                   </p>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export default function PageContact() {
                 <div>
                   <h3 className="font-semibold text-bleu-primaire">{t('telephone')}</h3>
                   <p className="text-texte-clair text-sm mt-1">
-                    +33 1 23 45 67 89
+                    +261 34 12 345 67
                   </p>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function PageContact() {
                 <div>
                   <h3 className="font-semibold text-bleu-primaire">{t('emailContact')}</h3>
                   <p className="text-texte-clair text-sm mt-1">
-                    contact@morninghope.org
+                    aro1019.manao@gmail.com
                   </p>
                 </div>
               </div>

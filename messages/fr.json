@@ -52,7 +52,21 @@
     "impactPartenaires": "Partenaires",
     "appelActionTitre": "Rejoignez notre cause",
     "appelActionDescription": "Chaque geste compte. Ensemble, nous pouvons changer des vies et construire un avenir meilleur pour les enfants et les familles vulnérables.",
-    "appelActionBouton": "Faire un don maintenant"
+    "appelActionBouton": "Faire un don maintenant",
+    "equipeTitre": "Notre Équipe",
+    "equipeSousTitre": "Des femmes et des hommes engagés au service des plus vulnérables",
+    "membre1Nom": "Jean Dupont",
+    "membre1Role": "Président",
+    "membre1Slogan": "Chaque enfant mérite une chance de grandir dans la dignité.",
+    "membre2Nom": "Marie Laurent",
+    "membre2Role": "Directrice des Programmes",
+    "membre2Slogan": "L'éducation est la clé d'un avenir meilleur.",
+    "membre3Nom": "Paul Martin",
+    "membre3Role": "Responsable Partenariats",
+    "membre3Slogan": "Ensemble, nous sommes plus forts pour changer le monde.",
+    "membre4Nom": "Sophie Bernard",
+    "membre4Role": "Coordinatrice Terrain",
+    "membre4Slogan": "Agir localement pour un impact global."
   },
   "Blog": {
     "titre": "Notre Blog",

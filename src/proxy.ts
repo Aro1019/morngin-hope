@@ -13,7 +13,7 @@ export const proxy = intlMiddleware;
 /* Configuration des chemins gérés par le proxy */
 export const config = {
   matcher: [
-    /* Tous les chemins sauf API, fichiers statiques et studio Sanity */
-    '/((?!api|_next|_vercel|studio|.*\\..*).*)',
+    /* Tous les chemins sauf API, fichiers statiques, studio Sanity et fichiers avec extension */
+    '/((?!api|_next|_vercel|studio|favicon|sw\\.js|.*\\..*).*)',
   ],
 };
