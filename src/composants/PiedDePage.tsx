@@ -64,8 +64,8 @@ export default function PiedDePage() {
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('contact')}</h3>
             <ul className="space-y-2 text-blue-200 text-sm">
-              <li>contact@morninghope.org</li>
-              <li>+33 1 23 45 67 89</li>
+              <li>{process.env.CONTACT_EMAIL}</li>
+              <li>+261 33 68 120 16</li>
             </ul>
             <div className="mt-6">
               <h3 className="text-lg font-semibold mb-3">{t('suivezNous')}</h3>
